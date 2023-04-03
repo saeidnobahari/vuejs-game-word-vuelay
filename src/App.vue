@@ -1,9 +1,9 @@
 <template>
   <div id="root">
-    제시어 : {{ word }}
+    Hint Word : {{ word }}
     <form v-on:submit="onSubmitForm">
       <input type="text" v-model="inputValue" ref="answer">
-      <button type="submit">입력</button>
+      <button type="submit">input</button>
     </form>
   </div>
   <div> 
@@ -16,7 +16,7 @@ export default {
   name: 'App',
   data(){
     return{
-      word:'끝말잇기',
+      word:'Word Vuelay',
       inputValue:'',
       result:'',
     }
@@ -25,12 +25,12 @@ export default {
     onSubmitForm(e){
       e.preventDefault();
       if(this.word[this.word.length - 1] === this.inputValue[0]) {
-        this.result = '정답';
+        this.result = 'Correct Answer';
         this.word = this.inputValue;
         this.inputValue = '';
         this.$refs.answer.focus();
       } else {
-        this.result = '땡';
+        this.result = 'Wrong Answer';
         this.inputValue='';
       }
     }
